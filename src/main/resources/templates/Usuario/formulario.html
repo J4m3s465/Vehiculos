@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Formulario</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        nav {
+            background-color: #222;
+            color: #fff;
+            padding: 15px 0;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+            font-size: 24px;
+            font-weight: normal;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            width: 100%;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+        }
+        .btn-guardar {
+            background-color: #0062cc;
+            border-color: #0056b3;
+            width: 100%;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-guardar:hover {
+            background-color: #0056b3;
+            border-color: #004494;
+        }
+    </style>
+
+</head>
+<body class="body">
+<nav>
+    <div class="container">
+        <h1 class="logo" style="font-size: 24px; margin: 0;">Veterinaria Amigos de los Animales</h1>
+        <ul>
+            <li><a th:href="@{/home}" class="btn btn-success" style="margin-top: 10px;">Incio</a></li>
+            <li><a th:href="@{/usuarios}" class="btn btn-success" style="margin-top: 10px;">Vehículos</a></li>
+            <li><a th:href="@{/usuario/form}" class="btn btn-success" style="margin-top: 10px;">Registro</a></li>
+
+        </ul>
+    </div>
+</nav>
+<h2>Formulario de Registro para su vehículo</h2>
+<div class="container">
+    <form th:action="@{/usuario/guardar}" method="post" th:object="${usuario}">
+        <div class="mb-3 mt-3">
+            <label for="id">ID:</label>
+            <input type="number" class="form-control" id="id" placeholder="Enter ID" th:field="*{id}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="nombre_propietario">Nombre del propietario:</label>
+            <input type="text" id="nombre_propietario" class="form-control" name="nombre" th:field="*{nombre_propietario}">
+        </div>
+        <div class="mb-3">
+            <label for="apellido_propietario">Apellido del propietario:</label>
+            <input type="text" id="apellido_propietario" class="form-control" name="apellido_propietario" th:field="*{apellido_propietario}">
+        </div>
+        <div class="mb-3">
+            <label for="marca" class="form-label">Seleccione la Marca de su Vehiculo:</label>
+            <select id="marca" class="form-select" name="marca" th:field="*{marca}" required>
+                <option value="" selected>Seleccione...</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Ferrari">Ferrari</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="modelo">modelo:</label>
+            <input type="text" id="modelo" class="form-control" name="modelo" th:field="*{modelo}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="year_vehiculo">Año del vehículo:</label>
+            <input type="number" id="year_vehiculo" class="form-control" name="year_vehiculo" th:field="*{year_vehiculo}">
+        </div>
+        <div class="mb-3">
+            <label for="placa">Placa:</label>
+            <input type="number" id="placa" class="form-control" name="placa" th:field="*{placa}">
+        </div>
+        <div class="mb-3">
+            <label for="color">Color:</label>
+            <input type="text" id="color" class="form-control" name="color" th:field="*{color}">
+        </div>
+        <button type="submit" class="btn-guardar">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

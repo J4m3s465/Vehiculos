@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #28a745;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #218838;
+        }
+        header {
+            background: url('veterinary-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        section {
+            padding: 60px 20px;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service, .team-member, .testimonial {
+            margin-bottom: 20px;
+        }
+        .service h3, .team-member h3, .testimonial p {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="container">
+        <h1 class="logo" style="font-size: 24px; margin: 0;">VEHICULOS</h1>
+        <ul>
+            <li><a th:href="@{/home}" class="btn btn-success" style="margin-top: 10px;">Incio</a></li>
+            <li><a th:href="@{/usuarios}" class="btn btn-success" style="margin-top: 10px;">Vehiculos</a></li>
+            <li><a th:href="@{/usuario/form}" class="btn btn-success" style="margin-top: 10px;">Registro</a></li>
+        </ul>
+    </div>
+</nav>
+<header id="home">
+    <div class="container">
+        <h2 style="font-size: 48px; margin: 0;">Bienvenidos a Tu Concesionario</h2>
+        <p style="font-size: 24px;">Nos preocupamos por el bienestar de tu Bolsillo</p>
+    </div>
+</header>
+<section id="services">
+    <div class="container">
+        <h2>Nuestros Servicios</h2>
+        <div class="service">
+            <h3>Consulta General</h3>
+            <p>Atención Vehicular completa para tu Auto.</p>
+        </div>
+        <div class="service">
+            <h3>Repuestos</h3>
+            <p>Los Mejores Repuestos Importados.</p>
+        </div>
+        <div class="service">
+            <h3>Atencion 24/7</h3>
+            <p>Atentemos las 24 horas del Dia.</p>
+        </div>
+    </div>
+</section>
+<section id="team">
+    <div class="container">
+        <h2>Nuestro Equipo</h2>
+        <div class="team-member">
+            <h3>Ing. Adrian Ybañez</h3>
+            <p>Ingeniero Automotriz Principal</p>
+        </div>
+        <div class="team-member">
+            <h3>Ing. Eliana Castro</h3>
+            <p>Supervisora de Procesos</p>
+        </div>
+        <div class="team-member">
+            <h3>Ing. Verito Zapata</h3>
+            <p>Gerente de Ventas</p>
+        </div>
+    </div>
+</section>
+<section id="testimonials">
+    <div class="container">
+        <h2>Testimonios</h2>
+        <div class="testimonial">
+            <p>"Excelente servicio y atención. Arreglaron mi Auto rápidamente."</p>
+            <p>- María López</p>
+        </div>
+        <div class="testimonial">
+            <p>"El equipo es muy profesional y amable. Recomendado 100%."</p>
+            <p>- Luis Fernández</p>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 VEHICULOS. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>
